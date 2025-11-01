@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sri Krishna Devam - Events</title>
+    <meta name="description" content="Upcoming and past events at Sri Krishna Devam Temple.">
+    <meta name="theme-color" content="#5d1f1a">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="ornament-top"></div>
+    <header class="site-header" role="banner">
+        <div class="container nav">
+            <div class="brand">
+                <div class="brand-logo" aria-hidden="true"></div>
+                <div class="brand-title">Sri Krishna Devam</div>
+            </div>
+            <nav aria-label="Primary" role="navigation">
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="seva.html">Seva</a>
+                    <a href="events.html" class="active">Events</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+        <section>
+            <h1 class="section-title">Events</h1>
+            <p class="section-subtitle">Browse upcoming and past events.</p>
+            <label>
+                Filter:
+                <select data-events-filter>
+                    <option value="all">All</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="past">Past</option>
+                </select>
+            </label>
+            <div style="height:10px"></div>
+            <div class="events-list" style="display: grid; gap: 12px;">
+                <div class="event-item" data-event-item data-event-date="2025-11-15">
+                    <div class="event-date">
+                        <div>Nov</div>
+                        <div>15</div>
+                    </div>
+                    <div>
+                        <h3 class="event-title">Karthika Deepam</h3>
+                        <p>Evening lamps, bhajans and special pooja.</p>
+                    </div>
+                </div>
+                <div class="event-item" data-event-item data-event-date="2025-12-01">
+                    <div class="event-date">
+                        <div>Dec</div>
+                        <div>01</div>
+                    </div>
+                    <div>
+                        <h3 class="event-title">Pradosham</h3>
+                        <p>Abhishekam and Rudra chantings.</p>
+                    </div>
+                </div>
+                <div class="event-item" data-event-item data-event-date="2025-08-19">
+                    <div class="event-date">
+                        <div>Aug</div>
+                        <div>19</div>
+                    </div>
+                    <div>
+                        <h3 class="event-title">Janmashtami</h3>
+                        <p>Alankaram, dances and prasadam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h4>Sri Krishna Devam</h4>
+                <p>123 Sacred Street, Holy City</p>
+                <p>Timings: 6:00 AM – 9:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="seva.html">Seva</a></p>
+                <p><a href="events.html">Events</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Phone: +91-00000 00000</p>
+                <p>Email: info@example.com</p>
+            </div>
+        </div>
+        <div class="container copyright">© <span id="year"></span> Sri Krishna Devam</div>
+    </footer>
+    <div class="ornament-bottom"></div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="assets/js/main.js" defer></script>
+    <!-- Aesthetic inspired by https://online.srjbtkshetra.org/#/login -->
+</body>
+
+</html>

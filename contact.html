@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sri Krishna Devam - Contact</title>
+    <meta name="description" content="Contact Sri Krishna Devam Temple. Timings, address, phone, and email.">
+    <meta name="theme-color" content="#5d1f1a">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="ornament-top"></div>
+    <header class="site-header" role="banner">
+        <div class="container nav">
+            <div class="brand">
+                <div class="brand-logo" aria-hidden="true"></div>
+                <div class="brand-title">Sri Krishna Devam</div>
+            </div>
+            <nav aria-label="Primary" role="navigation">
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="seva.html">Seva</a>
+                    <a href="events.html">Events</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+        <section>
+            <h1 class="section-title">Contact Us</h1>
+            <p class="section-subtitle">We would love to hear from you.</p>
+            <div class="card" style="padding:16px; display:grid; gap:16px; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h2>Temple Information</h2>
+                    <p><strong>Address:</strong> 123 Sacred Street, Holy City</p>
+                    <p><strong>Phone:</strong> +91-00000 00000</p>
+                    <p><strong>Email:</strong> info@example.com</p>
+                    <p><strong>Timings:</strong> 6:00 AM – 9:00 PM</p>
+                    <p><a class="btn btn-ghost" href="https://maps.google.com" target="_blank" rel="noopener">View on
+                            Map</a></p>
+                </div>
+                <div>
+                    <h2>Send a Message</h2>
+                    <form id="contact-form" action="https://formspree.io/f/yourid" method="POST">
+                        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+                        <div style="display:grid; gap:10px;">
+                            <label> Name <input name="name" required placeholder="Your name"></label>
+                            <label> Email <input type="email" name="email" required
+                                    placeholder="you@example.com"></label>
+                            <label> Subject <input name="subject" required placeholder="Subject"></label>
+                            <label> Message <textarea name="message" rows="4" required
+                                    placeholder="Your message"></textarea></label>
+                            <button class="btn btn-primary" type="submit">Send</button>
+                            <div id="contact-status" aria-live="polite"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h4>Sri Krishna Devam</h4>
+                <p>123 Sacred Street, Holy City</p>
+                <p>Timings: 6:00 AM – 9:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="seva.html">Seva</a></p>
+                <p><a href="events.html">Events</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Phone: +91-00000 00000</p>
+                <p>Email: info@example.com</p>
+            </div>
+        </div>
+        <div class="container copyright">© <span id="year"></span> Sri Krishna Devam</div>
+    </footer>
+    <div class="ornament-bottom"></div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="assets/js/main.js" defer></script>
+    <!-- Aesthetic inspired by https://online.srjbtkshetra.org/#/login -->
+</body>
+
+</html>
