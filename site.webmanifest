@@ -3,7 +3,7 @@
     "short_name": "Sri Krishna Devam",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#f7efe3",
-    "theme_color": "#5d1f1a",
+    "background_color": "#ffffff",
+    "theme_color": "#8b5cf6",
     "icons": []
 }
