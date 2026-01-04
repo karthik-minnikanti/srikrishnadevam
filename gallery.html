@@ -9,6 +9,94 @@
     <meta name="theme-color" content="#5d1f1a">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-elev);
+            border: 1px solid rgba(201, 166, 70, 0.35);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(201, 166, 70, 0.5);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--color-maroon);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .carousel-controls:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-prev {
+            left: 15px;
+        }
+        .carousel-next {
+            right: 15px;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .carousel-indicator.active {
+            background: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+        @media (max-width: 720px) {
+            .carousel-slide img {
+                height: 300px;
+            }
+            .carousel-controls {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -32,6 +120,7 @@
                     <a href="updates.html">Updates</a>
                     <a href="donors.html">Donors</a>
                     <a href="contact.html">Contact</a>
+                    <a href="plan.html">Plan</a>
                 </div>
             </nav>
         </div>
@@ -41,22 +130,82 @@
         <section>
             <h1 class="section-title">Gallery</h1>
             <p class="section-subtitle">Click a photo to view full size.</p>
+            
+            <!-- Carousel -->
+            <div class="carousel-container" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <img src="assets/img/p1.jpg" alt="Temple Gallery Image 1" loading="eager">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img/p5.jpeg" alt="Temple Gallery Image 5" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img/p10.jpeg" alt="Temple Gallery Image 10" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img/p13.jpeg" alt="Temple Gallery Image 13" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img/p18.jpeg" alt="Temple Gallery Image 18" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img/p24.jpeg" alt="Temple Gallery Image 24" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-controls carousel-prev" id="carouselPrev" aria-label="Previous">‹</button>
+                <button class="carousel-controls carousel-next" id="carouselNext" aria-label="Next">›</button>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+
             <div class="gallery-grid">
-                <a href="assets/img/1.jpg" data-lightbox><img src="assets/img/1.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p1.jpg" data-lightbox="gallery"><img src="assets/img/p1.jpg" alt="Temple Gallery Image 1" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/2.jpg" data-lightbox><img src="assets/img/2.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p2.jpeg" data-lightbox="gallery"><img src="assets/img/p2.jpeg" alt="Temple Gallery Image 2" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/3.jpg" data-lightbox><img src="assets/img/3.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p3.jpeg" data-lightbox="gallery"><img src="assets/img/p3.jpeg" alt="Temple Gallery Image 3" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/4.jpg" data-lightbox><img src="assets/img/4.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p4.jpeg" data-lightbox="gallery"><img src="assets/img/p4.jpeg" alt="Temple Gallery Image 4" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/5.jpg" data-lightbox><img src="assets/img/5.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p5.jpeg" data-lightbox="gallery"><img src="assets/img/p5.jpeg" alt="Temple Gallery Image 5" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/6.jpg" data-lightbox><img src="assets/img/6.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p6.jpeg" data-lightbox="gallery"><img src="assets/img/p6.jpeg" alt="Temple Gallery Image 6" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/1.jpg" data-lightbox><img src="assets/img/1.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p7.jpeg" data-lightbox="gallery"><img src="assets/img/p7.jpeg" alt="Temple Gallery Image 7" loading="lazy"
                         width="400" height="300"></a>
-                <a href="assets/img/2.jpg" data-lightbox><img src="assets/img/2.jpg" alt="Lord Krishna" loading="lazy"
+                <a href="assets/img/p8.jpeg" data-lightbox="gallery"><img src="assets/img/p8.jpeg" alt="Temple Gallery Image 8" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p9.jpeg" data-lightbox="gallery"><img src="assets/img/p9.jpeg" alt="Temple Gallery Image 9" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p10.jpeg" data-lightbox="gallery"><img src="assets/img/p10.jpeg" alt="Temple Gallery Image 10" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p11.jpeg" data-lightbox="gallery"><img src="assets/img/p11.jpeg" alt="Temple Gallery Image 11" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p12.jpeg" data-lightbox="gallery"><img src="assets/img/p12.jpeg" alt="Temple Gallery Image 12" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p13.jpeg" data-lightbox="gallery"><img src="assets/img/p13.jpeg" alt="Temple Gallery Image 13" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p14.jpeg" data-lightbox="gallery"><img src="assets/img/p14.jpeg" alt="Temple Gallery Image 14" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p15.jpeg" data-lightbox="gallery"><img src="assets/img/p15.jpeg" alt="Temple Gallery Image 15" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p16.jpeg" data-lightbox="gallery"><img src="assets/img/p16.jpeg" alt="Temple Gallery Image 16" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p17.jpeg" data-lightbox="gallery"><img src="assets/img/p17.jpeg" alt="Temple Gallery Image 17" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p18.jpeg" data-lightbox="gallery"><img src="assets/img/p18.jpeg" alt="Temple Gallery Image 18" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p19.jpeg" data-lightbox="gallery"><img src="assets/img/p19.jpeg" alt="Temple Gallery Image 19" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p20.jpeg" data-lightbox="gallery"><img src="assets/img/p20.jpeg" alt="Temple Gallery Image 20" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p21.jpeg" data-lightbox="gallery"><img src="assets/img/p21.jpeg" alt="Temple Gallery Image 21" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p22.jpeg" data-lightbox="gallery"><img src="assets/img/p22.jpeg" alt="Temple Gallery Image 22" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p23.jpeg" data-lightbox="gallery"><img src="assets/img/p23.jpeg" alt="Temple Gallery Image 23" loading="lazy"
+                        width="400" height="300"></a>
+                <a href="assets/img/p24.jpeg" data-lightbox="gallery"><img src="assets/img/p24.jpeg" alt="Temple Gallery Image 24" loading="lazy"
                         width="400" height="300"></a>
             </div>
         </section>
@@ -95,6 +244,94 @@
     <div class="ornament-bottom"></div>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script src="assets/js/main.js" defer></script>
+    <script>
+        (function() {
+            const carouselTrack = document.getElementById('carouselTrack');
+            const carouselPrev = document.getElementById('carouselPrev');
+            const carouselNext = document.getElementById('carouselNext');
+            const carouselIndicators = document.getElementById('carouselIndicators');
+            const slides = carouselTrack.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            let autoplayInterval;
+
+            // Create indicators
+            slides.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+                indicator.addEventListener('click', () => goToSlide(index));
+                carouselIndicators.appendChild(indicator);
+            });
+
+            function updateCarousel() {
+                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                document.querySelectorAll('.carousel-indicator').forEach((ind, idx) => {
+                    ind.classList.toggle('active', idx === currentSlide);
+                });
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+                resetAutoplay();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel();
+                resetAutoplay();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateCarousel();
+                resetAutoplay();
+            }
+
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, 4000);
+            }
+
+            function resetAutoplay() {
+                clearInterval(autoplayInterval);
+                startAutoplay();
+            }
+
+            carouselNext.addEventListener('click', nextSlide);
+            carouselPrev.addEventListener('click', prevSlide);
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carouselTrack.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            carouselTrack.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    nextSlide();
+                }
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    prevSlide();
+                }
+            }
+
+            // Pause autoplay on hover
+            const carousel = document.getElementById('carousel');
+            carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+            carousel.addEventListener('mouseleave', startAutoplay);
+
+            // Initialize
+            updateCarousel();
+            startAutoplay();
+        })();
+    </script>
     <!-- Aesthetic inspired by https://online.srjbtkshetra.org/#/login -->
 </body>
 

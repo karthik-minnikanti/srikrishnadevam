@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sri Krishna Devam - Temple Plan</title>
+    <meta name="description" content="View temple plan and architectural drawing for Sri Krishna Devam Devalayam.">
+    <meta name="theme-color" content="#5d1f1a">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .plan-container {
+            width: 100%;
+            height: calc(100vh - 300px);
+            min-height: 600px;
+            margin: 20px 0;
+            border: 1px solid rgba(93, 31, 26, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f5f5f5;
+            position: relative;
+            cursor: grab;
+        }
+        .plan-container.dragging {
+            cursor: grabbing;
+        }
+        .plan-image-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .plan-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+            user-select: none;
+        }
+        .zoom-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 10;
+        }
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(93, 31, 26, 0.2);
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-maroon);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+        }
+        .zoom-btn:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+        }
+        .zoom-btn:active {
+            transform: scale(0.95);
+        }
+        .zoom-info {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--color-maroon);
+            border: 1px solid rgba(93, 31, 26, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .plan-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="ornament-top"></div>
+    <header class="site-header" role="banner">
+        <div class="container nav">
+            <div class="brand">
+                <div class="brand-logo" aria-hidden="true">
+                    <img src="assets/img/3.jpg" alt="Sri Krishna Devam Logo">
+                </div>
+                <div class="brand-title">Sri Krishna Devam</div>
+            </div>
+            <nav aria-label="Primary" role="navigation">
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="seva.html">Seva</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="updates.html">Updates</a>
+                    <a href="donors.html">Donors</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="plan.html" class="active">Plan</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+        <section>
+            <h1 class="section-title">Temple Plan</h1>
+            <p class="section-subtitle">View detailed temple plan and architectural drawing.</p>
+
+            <div class="card" style="padding:20px;">
+                <div class="plan-container" id="planContainer">
+                    <div class="plan-image-wrapper" id="imageWrapper">
+                        <img src="assets/img/plan.jpg" alt="Temple Plan" class="plan-image" id="planImage">
+                    </div>
+                    <div class="zoom-controls">
+                        <button class="zoom-btn" id="zoomIn" aria-label="Zoom In" title="Zoom In">+</button>
+                        <button class="zoom-btn" id="zoomOut" aria-label="Zoom Out" title="Zoom Out">−</button>
+                        <button class="zoom-btn" id="resetZoom" aria-label="Reset Zoom" title="Reset">⌂</button>
+                    </div>
+                    <div class="zoom-info" id="zoomInfo">100%</div>
+                </div>
+                <div class="plan-actions">
+                    <a class="btn btn-primary" href="assets/img/plan.jpg" target="_blank" rel="noopener" download>Download Image</a>
+                    <a class="btn btn-ghost" href="assets/img/plan.jpg" target="_blank" rel="noopener">Open in New Tab</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h4>Sri Krishna Devam</h4>
+                <p>Sri Krishna Devam Devalayam Charitable Trust,<br>Sri Krishna Devam Premises,<br>Abbu Saheb Pet,
+                    Badvel Mandal,<br>YSR Kadapa Dist, AP</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="seva.html">Seva</a></p>
+                <p><a href="updates.html">Construction Updates</a></p>
+                <p><a href="donors.html">Donor's List</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Contact: G. N. Raju</p>
+                <p>Phone: +91 94948 24411</p>
+                <p>Email: gnraju0106@gmail.com</p>
+            </div>
+        </div>
+        <div class="container copyright">© <span id="year"></span> Sri Krishna Devam</div>
+    </footer>
+    <div class="ornament-bottom"></div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="assets/js/main.js" defer></script>
+    <script>
+        (function() {
+            const planImage = document.getElementById('planImage');
+            const planContainer = document.getElementById('planContainer');
+            const imageWrapper = document.getElementById('imageWrapper');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+            const resetZoomBtn = document.getElementById('resetZoom');
+            const zoomInfo = document.getElementById('zoomInfo');
+
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+            const minScale = 0.5;
+            const maxScale = 5;
+            const zoomStep = 0.25;
+
+            function updateZoom() {
+                planImage.style.transform = `scale(${scale})`;
+                zoomInfo.textContent = Math.round(scale * 100) + '%';
+            }
+
+            function zoomIn() {
+                if (scale < maxScale) {
+                    scale = Math.min(scale + zoomStep, maxScale);
+                    updateZoom();
+                }
+            }
+
+            function zoomOut() {
+                if (scale > minScale) {
+                    scale = Math.max(scale - zoomStep, minScale);
+                    updateZoom();
+                }
+            }
+
+            function resetZoom() {
+                scale = 1;
+                updateZoom();
+                imageWrapper.scrollLeft = imageWrapper.scrollWidth / 2 - imageWrapper.clientWidth / 2;
+                imageWrapper.scrollTop = imageWrapper.scrollHeight / 2 - imageWrapper.clientHeight / 2;
+            }
+
+            // Button events
+            zoomInBtn.addEventListener('click', zoomIn);
+            zoomOutBtn.addEventListener('click', zoomOut);
+            resetZoomBtn.addEventListener('click', resetZoom);
+
+            // Mouse wheel zoom
+            planContainer.addEventListener('wheel', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    const delta = e.deltaY > 0 ? -zoomStep : zoomStep;
+                    scale = Math.max(minScale, Math.min(maxScale, scale + delta));
+                    updateZoom();
+                }
+            }, { passive: false });
+
+            // Drag to pan
+            planContainer.addEventListener('mousedown', function(e) {
+                if (scale > 1) {
+                    isDragging = true;
+                    planContainer.classList.add('dragging');
+                    startX = e.pageX - imageWrapper.offsetLeft;
+                    startY = e.pageY - imageWrapper.offsetTop;
+                    scrollLeft = imageWrapper.scrollLeft;
+                    scrollTop = imageWrapper.scrollTop;
+                }
+            });
+
+            planContainer.addEventListener('mouseleave', function() {
+                isDragging = false;
+                planContainer.classList.remove('dragging');
+            });
+
+            planContainer.addEventListener('mouseup', function() {
+                isDragging = false;
+                planContainer.classList.remove('dragging');
+            });
+
+            planContainer.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - imageWrapper.offsetLeft;
+                const y = e.pageY - imageWrapper.offsetTop;
+                const walkX = (x - startX) * 2;
+                const walkY = (y - startY) * 2;
+                imageWrapper.scrollLeft = scrollLeft - walkX;
+                imageWrapper.scrollTop = scrollTop - walkY;
+            });
+
+            // Touch support for mobile
+            let touchStartX, touchStartY, touchScrollLeft, touchScrollTop;
+            planContainer.addEventListener('touchstart', function(e) {
+                if (scale > 1 && e.touches.length === 1) {
+                    isDragging = true;
+                    touchStartX = e.touches[0].pageX - imageWrapper.offsetLeft;
+                    touchStartY = e.touches[0].pageY - imageWrapper.offsetTop;
+                    touchScrollLeft = imageWrapper.scrollLeft;
+                    touchScrollTop = imageWrapper.scrollTop;
+                }
+            }, { passive: true });
+
+            planContainer.addEventListener('touchmove', function(e) {
+                if (!isDragging || e.touches.length !== 1) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - imageWrapper.offsetLeft;
+                const y = e.touches[0].pageY - imageWrapper.offsetTop;
+                const walkX = (x - touchStartX) * 2;
+                const walkY = (y - touchStartY) * 2;
+                imageWrapper.scrollLeft = touchScrollLeft - walkX;
+                imageWrapper.scrollTop = touchScrollTop - walkY;
+            }, { passive: false });
+
+            planContainer.addEventListener('touchend', function() {
+                isDragging = false;
+            });
+
+            // Pinch zoom for touch devices
+            let initialDistance = 0;
+            let initialScale = 1;
+            planContainer.addEventListener('touchstart', function(e) {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    initialDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    initialScale = scale;
+                }
+            }, { passive: false });
+
+            planContainer.addEventListener('touchmove', function(e) {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const currentDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    const ratio = currentDistance / initialDistance;
+                    scale = Math.max(minScale, Math.min(maxScale, initialScale * ratio));
+                    updateZoom();
+                }
+            }, { passive: false });
+
+            // Initialize
+            updateZoom();
+        })();
+    </script>
+</body>
+
+</html>
+

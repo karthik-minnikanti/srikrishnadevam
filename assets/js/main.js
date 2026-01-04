@@ -75,6 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Scroll animations for gallery
+    const galleryItems = document.querySelectorAll('.gallery-grid a');
+    if (galleryItems.length > 0) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for each item
+                    setTimeout(() => {
+                        entry.target.classList.add('scroll-visible');
+                    }, index * 50); // 50ms delay between each item
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        galleryItems.forEach((item) => {
+            observer.observe(item);
+        });
+    }
 });
 
 
